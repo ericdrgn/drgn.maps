@@ -10,49 +10,33 @@
 	body { margin: 0; padding: 0; }
 	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
-
+</head>
+<body>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link
 rel="stylesheet"
 href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
 type="text/css"
 />
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js"></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
-    <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
-        #target { 
-            position:absolute; top:0; bottom:0; width:100%;
-            display: flex; justify-content: center; align-items: center;
-            pointer-events: none;
-        }
-        #target img { width:50px; height:50px; }
-        #position { 
-            position:absolute; top:0; height: 80px; width: 300px; 
-            background-color: #fff;
-            padding: 15px;
-            margin: 10px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-    </style>
-</head>
-<body>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link
+rel="stylesheet"
+href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+type="text/css"
+/>
 <div id="map"></div>
  
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZXJpY2RyZ24iLCJhIjoiY2tlejRwamJoMDg4dzMzbGViMGR4YmphYyJ9.fN98rx9R9xesWVJJfXcFjw';
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/ericdrgn/ckez4uyx31vos19llq440icff',
+style: 'mapbox://styles/ericdrgn/ckez4uyx31vos19llq440icff?optimize=true',
 center: [-105.042721, 38.840061],
 zoom: 13,
 pitch: 45,
 bearing: -40
-    });
-
-    map.addControl(new mapboxgl.NavigationControl());
-    
+});
+ 
 map.addControl(
 new MapboxDirections({
 accessToken: mapboxgl.accessToken
@@ -69,6 +53,11 @@ enableHighAccuracy: true
 trackUserLocation: true
 })
 );
+ 
+// Add zoom and rotation controls to the map.
+ var nav = new mapboxgl.NavigationControl();
+         map.addControl(nav, 'bottom-right');
+         var markers = [];
 
 </script>
  
