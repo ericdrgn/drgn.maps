@@ -86,7 +86,7 @@
 }
 .mapboxgl-ctrl-group {
   border-radius: 4px;
-  background: #fff
+  background: #000
 }
 .mapboxgl-ctrl-group:not(:empty) {
   -moz-box-shadow: 0 0 2px rgba(0, 0, 0, .1);
