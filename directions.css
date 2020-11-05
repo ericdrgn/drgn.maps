@@ -87,6 +87,7 @@
   z-index: 1000;
   overflow: hidden;
   font-size: 12px;
+  color: rgba(255, 255, 255, 1);
 }
 .mapboxgl-ctrl-bottom-left .mapboxgl-ctrl-geocoder ul, .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl-geocoder ul {
   top: auto;
@@ -107,7 +108,7 @@
   border-bottom: none;
 }
 .mapboxgl-ctrl-geocoder ul>li.active>a, .mapboxgl-ctrl-geocoder ul>li>a:hover {
-  background-color: #eee;
+  background-color: #000;
   text-decoration: none;
   cursor: pointer;
 }
